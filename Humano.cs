@@ -2,12 +2,11 @@ public class Humano
 {
     public string [] nombres = {"owo","uwu"};
     public string [] apodos = {"owo","uwu"};
-     public Humano(Personaje personaje)
+     public Humano(Stats stat)
     {
-        personaje.armadura = new Random().Next(2,3);
-        personaje.destreza = new Random().Next(2,3);
-        personaje.velocidad = new Random().Next(2,3);
-        personaje.fuerza = new Random().Next(2,3);
-        personaje.edad= new Random().Next(18,60);
+        stat.armadura = new Random().Next(2,3);
+        stat.destreza = new Random().Next(2,3);
+        stat.velocidad = new Random().Next(2,3);
+        stat.fuerza = new Random().Next(2,3);
     }
 }

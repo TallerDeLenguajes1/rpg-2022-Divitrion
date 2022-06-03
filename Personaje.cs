@@ -7,13 +7,8 @@ public enum tipos
 
 public class Personaje
 {
-    public int velocidad;
-    public int destreza;
-    public int fuerza;
-    public int nivel;
-    public int armadura;
+    public Stats caracteristicas = new Stats();
     public int edad;
-    public double salud;
     public string apodo;
     public string nombre;
     public DateTime fechaNac;
@@ -23,23 +18,13 @@ public class Personaje
 
     public Personaje()
     {
-        nivel = 1;
-        velocidad = 0;
-        destreza = 0;
-        fuerza = 0;
-        armadura = 0;
+        caracteristicas.nivel = 1;
+        caracteristicas.velocidad = 0;
+        caracteristicas.destreza = 0;
+        caracteristicas.fuerza = 0;
+        caracteristicas.armadura = 0;
         tipo = (tipos)new Random().Next(1,3);
-        salud = 100;
-    }
-
-    public void Caracteristicas()
-    {
-        Console.WriteLine($"Nivel: {nivel}\n");
-        Console.WriteLine($"Salud: {salud}\n");
-        Console.WriteLine($"Destreza: {destreza}\n");
-        Console.WriteLine($"Fuerza: {fuerza}\n");
-        Console.WriteLine($"Armadura: {armadura}\n");
-        Console.WriteLine($"Velocidad: {velocidad}\n");
+        caracteristicas.salud = 100;
     }
 
     public void Datos()
@@ -53,12 +38,11 @@ public class Personaje
 
     public void LevelUp()
     {
-        nivel++;
-        velocidad = velocidad + new Random().Next(1,2);
-        destreza = destreza + new Random().Next(1,2);
-        fuerza = fuerza + new Random().Next(1,2);
-        armadura = armadura + new Random().Next(1,2);
-        salud+=salud*0.2;
+        caracteristicas.nivel++;
+        caracteristicas.velocidad += new Random().Next(1,2);
+        caracteristicas.destreza +=  new Random().Next(1,2);
+        caracteristicas.fuerza +=  new Random().Next(1,2);
+        caracteristicas.armadura += new Random().Next(1,2);
     }
     
 }

@@ -11,7 +11,7 @@ public class Game
             while ((2*k+1)<=(stop-1))
             {
                 new Battle().Start(personajes[2*k],personajes[2*k+1]);
-                if (personajes[2*k].salud == personajes[2*k+1].salud)
+                if (personajes[2*k].caracteristicas.salud == personajes[2*k+1].caracteristicas.salud)
                 {
                     if (new Random().Next(1,2) != 1)
                     {
@@ -20,7 +20,7 @@ public class Game
                     {
                         perdedor=personajes[2*k+1];
                     }
-                }else if (personajes[2*k].salud > personajes[2*k+1].salud)
+                }else if (personajes[2*k].caracteristicas.salud > personajes[2*k+1].caracteristicas.salud)
                     {
                         perdedor=personajes[2*k+1];
                     }else

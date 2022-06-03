@@ -8,21 +8,21 @@ public class Battle
     private double Damage;
     public void hit(Personaje atacante,Personaje defensor)
     {
-        PD = atacante.destreza*atacante.fuerza*atacante.nivel;
+        PD = atacante.caracteristicas.destreza*atacante.caracteristicas.fuerza*atacante.caracteristicas.nivel;
         ED = new Random().Next(1,100);
         VA = PD * ED;
-        PDef = defensor.armadura*defensor.velocidad;
-        Damage=(((VA*ED)-PDef)/max)*100;
-        defensor.salud=defensor.salud - Damage;
-        if (defensor.salud<0)
+        PDef = defensor.caracteristicas.armadura*defensor.caracteristicas.velocidad;
+        Damage=(((VA*ED)-PDef)/max)*10;
+        defensor.caracteristicas.salud=defensor.caracteristicas.salud - Damage;
+        if (defensor.caracteristicas.salud<0)
         {
-            defensor.salud=0;
+            defensor.caracteristicas.salud=0;
         }
     }
 
     public void Start(Personaje participante1, Personaje participante2)
     {
-        if (participante1.velocidad>participante2.velocidad)
+        if (participante1.caracteristicas.velocidad>participante2.caracteristicas.velocidad)
         {
             participante1.turno=true;
         }else

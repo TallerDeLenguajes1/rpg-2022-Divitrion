@@ -2,11 +2,11 @@ public class Orco
 {
     public string [] nombres = {"owo","uwu"};
     public string [] apodos = {"owo","uwu"};
-    public Orco(Personaje personaje)
+    public Orco(Stats stat)
     {
-        personaje.armadura = new Random().Next(2,4);
-        personaje.destreza = new Random().Next(1,2);
-        personaje.velocidad = new Random().Next(1,2);
-        personaje.fuerza = new Random().Next(2,4);
+        stat.armadura = new Random().Next(2,4);
+        stat.destreza = new Random().Next(1,2);
+        stat.velocidad = new Random().Next(1,2);
+        stat.fuerza = new Random().Next(2,4);
     }
 }
