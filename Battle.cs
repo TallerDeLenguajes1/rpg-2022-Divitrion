@@ -1,23 +1,23 @@
 public class Battle
 {
-    private int PD;
-    private double ED;
     private double VA;
-    private int PDef;
-    private int max=50000;
+    private int AD;
     private double Damage;
     public void hit(Personaje atacante,Personaje defensor)
     {
-        PD = atacante.caracteristicas.destreza*atacante.caracteristicas.fuerza*atacante.caracteristicas.nivel;
-        ED = new Random().Next(1,100);
-        VA = PD * ED;
-        PDef = defensor.caracteristicas.armadura*defensor.caracteristicas.velocidad;
-        Damage=(((VA*ED)-PDef)/max)*10;
-        defensor.caracteristicas.salud=defensor.caracteristicas.salud - Damage;
-        if (defensor.caracteristicas.salud<0)
-        {
-            defensor.caracteristicas.salud=0;
-        }
+        if (atacante.habilidad.ulti.CD == 0)
+            {
+                AD=atacante.habilidad.ulti.Damage;
+            }else if(atacante.habilidad.especial.CD == 0)
+            {
+                AD=atacante.habilidad.especial.Damage;
+            }else
+            {
+                AD=atacante.habilidad.basico.Damage;
+            }
+        VA= ((2*atacante.caracteristicas.nivel)/50)+2;
+        Damage=(VA*AD*(atacante.caracteristicas.fuerza/defensor.caracteristicas.armadura));
+        defensor.caracteristicas.salud -= Damage;
     }
 
     public void Start(Personaje participante1, Personaje participante2)
@@ -29,19 +29,44 @@ public class Battle
         {
             participante2.turno=true;
         }
-        for (int i = 0; i < 3; i++)
+        while (participante1.caracteristicas.salud > 0 && participante2.caracteristicas.salud > 0)
         {
-            if (participante1.turno)
-            {
-                hit(participante1,participante2);
-                participante1.turno=false;
-                participante2.turno=true;
-            }else
-            {
-                hit(participante2,participante1);
-                participante1.turno=true;
-                participante2.turno=false;
-            }
+            turno(participante1,participante2);
         }
     }
+
+    public void turno(Personaje personaje1,Personaje personaje2)
+    {
+        if (personaje1.turno)
+        {
+            hit(personaje1,personaje2);
+            reduceCD(personaje1);
+            personaje1.turno=false;
+        }else
+        {
+            hit(personaje2,personaje1);
+            reduceCD(personaje2);
+            personaje1.turno=true;
+        }
+    }
+
+    public void reduceCD(Personaje personaje)
+    {
+        if (personaje.habilidad.ulti.CD>0)
+        {
+            personaje.habilidad.ulti.CD--;
+        }else
+        {
+            personaje.habilidad.ulti.CD=4;
+        }
+
+        if (personaje.habilidad.especial.CD>0)
+        {
+            personaje.habilidad.especial.CD--;
+        }else
+        {
+            personaje.habilidad.especial.CD=2;
+        }
+    }
+
 }

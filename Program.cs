@@ -1,18 +1,11 @@
 ﻿var participantes = new List<Personaje>();
 
-for (int i = 0; i < 8; i++)
+for (int i = 0; i < 4; i++)
 {
     var personaje= new Personaje();
     personaje.ID=i+1;
-    switch (personaje.tipo)
-    {
-        case tipos.Elfo: new Elfo(personaje.caracteristicas);
-        break;
-        case tipos.Humano: new Humano(personaje.caracteristicas);
-        break;
-        case tipos.Orco: new Orco(personaje.caracteristicas);
-        break;
-    }
+    new Raza().selector(personaje);
+    new Clase().selector(personaje);
     participantes.Add(personaje);
 }
 new Game().StartTourney(participantes);

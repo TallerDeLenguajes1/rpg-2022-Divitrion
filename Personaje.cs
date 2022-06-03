@@ -1,18 +1,27 @@
-public enum tipos
+public enum razas
 {
     Orco=1,
     Elfo=2,
     Humano=3
 }
 
+public enum clases
+{
+    Guerrero=1,
+    Mago=2,
+    Picaro=3
+}
+
 public class Personaje
 {
     public Stats caracteristicas = new Stats();
+    public SkillSet habilidad= new SkillSet();
     public int edad;
     public string apodo;
     public string nombre;
     public DateTime fechaNac;
-    public tipos tipo;
+    public razas raza;
+    public clases clase;
     public int ID;
     public bool turno=false;
 
@@ -23,13 +32,14 @@ public class Personaje
         caracteristicas.destreza = 0;
         caracteristicas.fuerza = 0;
         caracteristicas.armadura = 0;
-        tipo = (tipos)new Random().Next(1,3);
+        raza = (razas)new Random().Next(1,4);
+        clase = (clases)new Random().Next(1,4);
         caracteristicas.salud = 100;
     }
 
     public void Datos()
     {
-        Console.WriteLine($"Tipo: {tipo}\n");
+        Console.WriteLine($"Tipo: {raza}\n");
         Console.WriteLine($"Nombre: {nombre}\n");
         Console.WriteLine($"Apodo: {apodo}\n");
         Console.WriteLine($"Fecha de nacimiento: {fechaNac}\n");
@@ -44,5 +54,4 @@ public class Personaje
         caracteristicas.fuerza +=  new Random().Next(1,2);
         caracteristicas.armadura += new Random().Next(1,2);
     }
-    
 }
