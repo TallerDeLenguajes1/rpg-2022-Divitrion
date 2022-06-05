@@ -6,15 +6,24 @@ public class Battle
     public void hit(Personaje atacante,Personaje defensor)
     {
         if (atacante.habilidad.ulti.CD == 0)
-            {
-                AD=atacante.habilidad.ulti.Damage;
-            }else if(atacante.habilidad.especial.CD == 0)
-            {
-                AD=atacante.habilidad.especial.Damage;
-            }else
-            {
-                AD=atacante.habilidad.basico.Damage;
-            }
+        {
+            AD=atacante.habilidad.ulti.Damage;
+        }else if(atacante.habilidad.especial.CD == 0)
+        {
+            AD=atacante.habilidad.especial.Damage;
+        }else
+        {
+            AD=atacante.habilidad.basico.Damage;
+        }
+        switch (atacante.clase)
+        {
+            case clases.Guerrero:new Frames().guerrero();
+            break;
+            case clases.Mago:new Frames().mago();
+            break;
+            case clases.Picaro:new Frames().picaro();
+            break;
+        }
         VA= ((2*atacante.caracteristicas.nivel)/50)+2;
         Damage=(VA*AD*(atacante.caracteristicas.fuerza/defensor.caracteristicas.armadura));
         defensor.caracteristicas.salud -= Damage;
