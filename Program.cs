@@ -1,4 +1,5 @@
-﻿var participantes = new List<Personaje>();
+﻿new Menu().main();
+var participantes = new List<Personaje>();
 
 for (int i = 0; i < 4; i++)
 {
@@ -8,9 +9,10 @@ for (int i = 0; i < 4; i++)
     new Clase().selector(personaje);
     participantes.Add(personaje);
 }
+new TextHelper().writeJSON(participantes);
 new Game().StartTourney(participantes);
 
-participantes[0].caracteristicas.Mostrar();
+participantes[0].Caracteristicas.Mostrar();
 
 
 

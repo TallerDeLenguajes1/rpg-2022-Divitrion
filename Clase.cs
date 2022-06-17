@@ -2,58 +2,49 @@ public class Clase
 {
     public void Guerrero(SkillSet habilidades)
     {
-        habilidades.basico.Damage=5;
+        habilidades.basico.Damage=8;
         habilidades.basico.CD=0;
-        habilidades.basico.tipo=tipos.fisico;
 
         habilidades.especial.Damage=15;
         habilidades.especial.CD=2;
-        habilidades.especial.tipo=tipos.fisico;
 
-        habilidades. ulti.Damage=25;
-        habilidades. ulti.CD=4;
-        habilidades. ulti.tipo=tipos.fisico;
+        habilidades.ulti.Damage=25;
+        habilidades.ulti.CD=4;
     }
 
     public void Mago(SkillSet habilidades)
     {
-        habilidades.basico.Damage=5;
+        habilidades.basico.Damage=2;
         habilidades.basico.CD=0;
-        habilidades.basico.tipo=tipos.magico;
 
-        habilidades.especial.Damage=15;
-        habilidades.especial.CD=2;
-        habilidades.especial.tipo=tipos.magico;
+        habilidades.especial.Damage=18;
+        habilidades.especial.CD=3;
 
-        habilidades. ulti.Damage=25;
-        habilidades. ulti.CD=4;
-        habilidades. ulti.tipo=tipos.magico;
+        habilidades.ulti.Damage=35;
+        habilidades.ulti.CD=6;
     }
 
     public void Picaro(SkillSet habilidades)
     {
-        habilidades.basico.Damage=5;
+        habilidades.basico.Damage=3;
         habilidades.basico.CD=0;
-        habilidades.basico.tipo=tipos.fisico;
 
-        habilidades.especial.Damage=15;
-        habilidades.especial.CD=2;
-        habilidades.especial.tipo=tipos.fisico;
+        habilidades.especial.Damage=10;
+        habilidades.especial.CD=1;
 
-        habilidades. ulti.Damage=25;
-        habilidades. ulti.CD=4;
-        habilidades. ulti.tipo=tipos.fisico;
+        habilidades.ulti.Damage=15;
+        habilidades.ulti.CD=2;
     }
 
     public void selector(Personaje personaje)
     {
-        switch (personaje.clase)
+        switch (personaje.Rasgos.Clase)
         {
-            case clases.Guerrero:Guerrero(personaje.habilidad);
+            case clases.Guerrero:Guerrero(personaje.Habilidad);
             break;
-            case clases.Mago:Mago(personaje.habilidad);
+            case clases.Mago:Mago(personaje.Habilidad);
             break;
-            case clases.Picaro:Picaro(personaje.habilidad);
+            case clases.Picaro:Picaro(personaje.Habilidad);
             break;
         }
     }

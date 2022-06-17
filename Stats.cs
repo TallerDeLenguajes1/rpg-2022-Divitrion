@@ -1,19 +1,29 @@
 public class Stats
 {
-    public double salud;
-    public int velocidad;
-    public int destreza;
-    public int fuerza;
-    public int nivel;
-    public int armadura;
+    private double salud;
+    private int velocidad,destreza,fuerza,nivel,armadura;
+
+
+    public double Salud {get => salud; set => salud = value;}
+    public int Velocidad {get => velocidad; set => velocidad = value;}
+    public int Destreza {get => destreza; set => destreza = value;}
+    public int Fuerza {get => fuerza; set => fuerza = value;}
+    public int Nivel {get => nivel; set => nivel = value;}
+    public int Armadura {get => armadura; set => armadura = value;}
 
     public void Mostrar()
     {
-        Console.WriteLine($"Nivel: {nivel}\n");
-        Console.WriteLine($"Salud: {Math.Ceiling(salud)}\n");
-        Console.WriteLine($"Destreza: {destreza}\n");
-        Console.WriteLine($"Fuerza: {fuerza}\n");
-        Console.WriteLine($"Armadura: {armadura}\n");
-        Console.WriteLine($"Velocidad: {velocidad}\n");
+        Console.WriteLine($"Nivel: {Nivel}\n");
+        Console.WriteLine($"Salud: {Math.Ceiling(Salud)}\n");
+        Console.WriteLine($"Destreza: {Destreza}\n");
+        Console.WriteLine($"Fuerza: {Fuerza}\n");
+        Console.WriteLine($"Armadura: {Armadura}\n");
+        Console.WriteLine($"Velocidad: {Velocidad}\n");
+    }
+
+    public Stats()
+    {
+        this.Nivel = 1;
+        this.Salud = 100;
     }
 }

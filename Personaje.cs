@@ -14,44 +14,30 @@ public enum clases
 
 public class Personaje
 {
-    public Stats caracteristicas = new Stats();
-    public SkillSet habilidad= new SkillSet();
-    public int edad;
-    public string apodo;
-    public string nombre;
-    public DateTime fechaNac;
-    public razas raza;
-    public clases clase;
-    public int ID;
+    private Stats caracteristicas;
+    private SkillSet habilidad;
+    private Traits rasgos;
+    private int id;
+
+    public Stats Caracteristicas {get => caracteristicas; set => caracteristicas = value;}
+    public SkillSet Habilidad {get => habilidad; set => habilidad= value;}
+    public Traits Rasgos {get => rasgos; set => rasgos = value;}
+    public int ID {get => id; set => id = value;}
     public bool turno=false;
 
     public Personaje()
     {
-        caracteristicas.nivel = 1;
-        caracteristicas.velocidad = 0;
-        caracteristicas.destreza = 0;
-        caracteristicas.fuerza = 0;
-        caracteristicas.armadura = 0;
-        raza = (razas)new Random().Next(1,4);
-        clase = (clases)new Random().Next(1,4);
-        caracteristicas.salud = 100;
-    }
-
-    public void Datos()
-    {
-        Console.WriteLine($"Tipo: {raza}\n");
-        Console.WriteLine($"Nombre: {nombre}\n");
-        Console.WriteLine($"Apodo: {apodo}\n");
-        Console.WriteLine($"Fecha de nacimiento: {fechaNac}\n");
-        Console.WriteLine($"Edad: {edad}\n");
+        this.caracteristicas= new Stats();
+        this.habilidad = new SkillSet();
+        this.rasgos = new Traits();
     }
 
     public void LevelUp()
     {
-        caracteristicas.nivel++;
-        caracteristicas.velocidad += new Random().Next(1,2);
-        caracteristicas.destreza +=  new Random().Next(1,2);
-        caracteristicas.fuerza +=  new Random().Next(1,2);
-        caracteristicas.armadura += new Random().Next(1,2);
+        caracteristicas.Nivel++;
+        caracteristicas.Velocidad += new Random().Next(1,2);
+        caracteristicas.Destreza +=  new Random().Next(1,2);
+        caracteristicas.Fuerza +=  new Random().Next(1,2);
+        caracteristicas.Armadura += new Random().Next(1,2);
     }
 }
