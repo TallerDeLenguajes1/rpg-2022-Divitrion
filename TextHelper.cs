@@ -13,12 +13,9 @@ public class TextHelper
 
     public void writeJSON(List<Personaje> personajes)
     {
-       using (var sw = new StreamWriter(File.Open("jugadores.json",FileMode.Create)))
-       {
+
            string texto = JsonSerializer.Serialize(personajes);
-           sw.WriteLine(texto);
-           sw.Close();
-       }
+           File.WriteAllText("jugadores.json",texto);
 
     }
 }
