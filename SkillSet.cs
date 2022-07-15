@@ -1,12 +1,12 @@
 public class SkillSet
 {
-    public Skill basico = new Skill();
-    public Skill especial = new Skill();
-    public Skill ulti = new Skill();
+    public Skill basico { get; set; } = new Skill();
+    public Skill especial { get; set; } = new Skill();
+    public Skill ulti { get; set; } = new Skill();
 }
 public class Skill
 {
-    public int Damage;
-    public int CD;
+    public int Damage { get; set; }
+    public int CD { get; set; }
 }
 

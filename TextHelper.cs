@@ -1,8 +1,8 @@
 using System.Text.Json;
 
-public class TextHelper
+static class TextHelper
 {
-    public void writeCSV(Personaje ganador)
+    public static void writeCSV(Personaje ganador)
     {
         using (StreamWriter sw = new StreamWriter(File.Open("ganadores.csv",FileMode.Append)))
         {
@@ -11,14 +11,22 @@ public class TextHelper
         }
     }
 
-    public void writeJSON(List<Personaje> personajes)
+    public static void writeJSON(List<Personaje> personajes)
     {
-       using (var sw = new StreamWriter(File.Open("jugadores.json",FileMode.Create)))
-       {
            string texto = JsonSerializer.Serialize(personajes);
-           sw.WriteLine(texto);
-           sw.Close();
-       }
+           File.WriteAllText("jugadores.json", texto);
 
+    }
+
+    public static string readJSON(string ruta)
+    {
+        string jsonText;
+        jsonText= File.ReadAllText(ruta);
+        return jsonText;
+    }
+
+    public static List<Personaje> jsonConverter(string jsonText)
+    {
+        return JsonSerializer.Deserialize<List<Personaje>>(jsonText);
     }
 }

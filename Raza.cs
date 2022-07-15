@@ -1,8 +1,6 @@
 public class Raza
 {
-    public string [] nombres = {"owo","uwu"};
-    public string [] apodos = {"owo","uwu"};
-    public void Elfo(Stats stat)
+    public static void Elfo(Stats stat)
     {
         stat.Armadura = new Random().Next(1,2);
         stat.Destreza = new Random().Next(2,4);
@@ -10,7 +8,7 @@ public class Raza
         stat.Fuerza = new Random().Next(1,2);
     }
 
-    public void Humano(Stats stat)
+    public static void Humano(Stats stat)
     {
         stat.Armadura = new Random().Next(2,3);
         stat.Destreza = new Random().Next(2,3);
@@ -18,7 +16,7 @@ public class Raza
         stat.Fuerza = new Random().Next(2,3);
     }
 
-    public void Orco(Stats stat)
+    public static void Orco(Stats stat)
     {
         stat.Armadura = new Random().Next(2,4);
         stat.Destreza = new Random().Next(1,2);
@@ -26,7 +24,7 @@ public class Raza
         stat.Fuerza = new Random().Next(2,4);
     }
 
-    public void selector(Personaje personaje)
+    public static void selector(Personaje personaje)
     {
         switch (personaje.Rasgos.Raza)
         {

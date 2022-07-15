@@ -1,6 +1,6 @@
-public class Game
+static class Game
 {
-    public void StartTourney(List<Personaje> personajes)
+    public static void StartTourney(List<Personaje> personajes)
     {
         Personaje perdedor;
         while (personajes.Count != 1)
@@ -45,6 +45,6 @@ public class Game
                 personaje.LevelUp();
             }
         }
-        new TextHelper().writeCSV(personajes[0]);
+        TextHelper.writeCSV(personajes[0]);
     }
 }

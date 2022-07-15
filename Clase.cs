@@ -1,6 +1,6 @@
 public class Clase
 {
-    public void Guerrero(SkillSet habilidades)
+    public static void Guerrero(SkillSet habilidades)
     {
         habilidades.basico.Damage=8;
         habilidades.basico.CD=0;
@@ -12,7 +12,7 @@ public class Clase
         habilidades.ulti.CD=4;
     }
 
-    public void Mago(SkillSet habilidades)
+    public static void Mago(SkillSet habilidades)
     {
         habilidades.basico.Damage=2;
         habilidades.basico.CD=0;
@@ -24,7 +24,7 @@ public class Clase
         habilidades.ulti.CD=6;
     }
 
-    public void Picaro(SkillSet habilidades)
+    public static void Picaro(SkillSet habilidades)
     {
         habilidades.basico.Damage=3;
         habilidades.basico.CD=0;
@@ -36,7 +36,7 @@ public class Clase
         habilidades.ulti.CD=2;
     }
 
-    public void selector(Personaje personaje)
+    public static void selector(Personaje personaje)
     {
         switch (personaje.Rasgos.Clase)
         {
