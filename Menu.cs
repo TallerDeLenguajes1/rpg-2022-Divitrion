@@ -1,6 +1,6 @@
 public class Menu
 {
-    public void main()
+    public static void main()
     {
             Console.WriteLine(@"         
           _____                    _____                    _____          

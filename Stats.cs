@@ -18,7 +18,7 @@ public class Stats
         Console.WriteLine($"Destreza: {Destreza}\n");
         Console.WriteLine($"Fuerza: {Fuerza}\n");
         Console.WriteLine($"Armadura: {Armadura}\n");
-        Console.WriteLine($"Velocidad: {Velocidad}\n");
+        Console.WriteLine($"Velocidad: {Velocidad}");
     }
 
     public Stats()
